@@ -4,10 +4,15 @@ const inputBtn = document.getElementById("input-btn") //const cannot be reassign
 const ulEl = document.getElementById("ul-el")
 const container = document.getElementById("container")
 
+
 inputBtn.addEventListener("click", function() { // cleaner separation of concerns where the html doesn't worry abt the javascript - no "onclick" element in the html.
     myLeads.push(inputEl.value)
     inputEl.value=""
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
     renderLeads()
+    
+    // To verify that it works:
+    console.log( localStorage.getItem("myLeads") )
 })
 
 function renderLeads() {
