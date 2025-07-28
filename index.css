@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
+    min-width: 400px;
 }
 
 
@@ -19,4 +20,18 @@ button {
     padding: 10px 20px; /* first value = y-axis (top and bottom) , second value = x-axis (left and right)*/
     border: none;
     font-weight: bold;
+}
+
+ul {
+    margin-top: 20px;
+    list-style: none; /* get rid of bullet pts */
+    padding-left: 0; /* get rid of left-hand space */
+}
+
+li {
+    margin-top: 5px;
+}
+
+a { /* target all anchor tags */
+    color: #5f9341;
 }
