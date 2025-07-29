@@ -6,6 +6,7 @@ const container = document.getElementById("container")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 // console.log(leadsFromLocalStorage)
+const tabBtn = document.getElementById("tab-btn")
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
@@ -16,6 +17,10 @@ deleteBtn.addEventListener("dblclick", function() {
     localStorage.clear()
     myLeads = []
     render(myLeads) //clear DOM by rendering out the leads
+})
+
+tabBtn.addEventListener("click", function() {
+    console.log(tabs[0].url)
 })
 
 inputBtn.addEventListener("click", function() { // cleaner separation of concerns where the html doesn't worry abt the javascript - no "onclick" element in the html.
