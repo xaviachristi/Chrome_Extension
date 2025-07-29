@@ -13,14 +13,18 @@ if (leadsFromLocalStorage) {
     render(myLeads)
 }
 
+tabBtn.addEventListener("click", function() {
+    // console.log(tabs[0].url)
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myLeads.push(tabs[0].url) //push it to myLeads array
+        localStorage.setItem("myLeads", JSON.stringify(myLeads) ) //set myLeads to the stringified version of the myLeads array.
+        render(myLeads)
+})
+
 deleteBtn.addEventListener("dblclick", function() {
     localStorage.clear()
     myLeads = []
     render(myLeads) //clear DOM by rendering out the leads
-})
-
-tabBtn.addEventListener("click", function() {
-    console.log(tabs[0].url)
 })
 
 inputBtn.addEventListener("click", function() { // cleaner separation of concerns where the html doesn't worry abt the javascript - no "onclick" element in the html.
